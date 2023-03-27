@@ -17,7 +17,7 @@ function Form() {
   };
 
   return (
-    <>
+    <div className='form-wrapper'>
       <TryIt />
 
       <form
@@ -100,7 +100,7 @@ function Form() {
           <a href="#">Terms and Services</a>
         </p>
       </form>
-    </>
+    </div>
   );
 }
 

@@ -29,7 +29,8 @@ button {
 
 body {
   display: flex;
-  place-items: center;
+  justify-content: center;
+  align-items: center;
   min-height: 100vh;
   min-height: 100dvh;
   font-family: var(--ff);
@@ -83,6 +84,7 @@ body {
 
 .input-text {
   width: 100%;
+  font-size: 0.9rem;
   border: 1px solid var(--clr-grayish-blue);
   border-radius: 0.2rem;
   padding: 0.8rem 2rem;  
@@ -138,4 +140,43 @@ body {
   color: var(--clr-red);
   font-style: italic;
   font-size: 0.7rem;
+}
+
+@media (min-width: 30rem) {
+  body {
+    background-image: url('/src/assets/bg-intro-desktop.png');
+  }
+}
+
+
+@media (min-width: 40rem) {
+  .App {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+
+  .form-wrapper {
+    max-width: 540px;
+  }
+
+  .information {
+    align-self: center;
+    text-align: left;
+    max-width: 540px;
+  }
+
+  .information__title {
+    font-size: 2.5rem;
+  }
+}
+
+@media (min-width: 60rem) {
+  .information__title {
+    font-size: 3rem;
+  }
+
+  .trial-form {
+    padding: 2.5rem;
+  }
 }
