@@ -1,0 +1,99 @@
+import React from 'react';
+import { useForm } from 'react-hook-form';
+import TryIt from './TryIt';
+import InputError from './InputError';
+
+function Form() {
+  const {
+    register,
+    formState: { errors },
+    handleSubmit,
+    reset,
+  } = useForm({ mode: 'onBlur' });
+
+  const onSubmit = (data) => {
+    alert(JSON.stringify(data));
+    reset();
+  };
+
+  return (
+    <>
+      <TryIt />
+
+      <form
+        action="/"
+        method="post"
+        className="trial-form"
+        onSubmit={handleSubmit(onSubmit)}
+      >
+        <div className='input-area'>
+          <input
+            type="text"
+            className='input-text'
+            placeholder='First Name'
+            aria-label="First Name"
+            aria-invalid={errors.firstName ? 'true' : 'false'}
+            {...register('firstName', {
+              required: 'First Name cannot be empty',
+            })}
+          />
+          {errors?.firstName && (
+            <InputError message={errors?.firstName?.message} />
+          )}
+        </div>
+        <div className='input-area'>
+          <input
+            type="text"
+            className='input-text'
+            placeholder='Last Name'
+            aria-label="Last Name"
+            aria-invalid={errors.lastName ? 'true' : 'false'}
+            {...register('lastName', {
+              required: 'Last Name cannot be empty',
+            })}
+          />
+          {errors?.lastName && (
+            <InputError message={errors?.lastName?.message} />
+          )}
+        </div>
+        <div className='input-area'>
+          <input
+            type="text"
+            className='input-text'
+            placeholder='Email Address'
+            aria-label="Email Address"
+            aria-invalid={errors.email ? 'true' : 'false'}
+            {...register('email', {
+              required: 'Email cannot be empty',
+            })}
+          />
+          {errors?.email && (
+            <InputError message={errors?.email?.message} />
+          )}
+        </div>
+        <div className='input-area'>
+          <input
+            type="password"
+            className='input-text'
+            placeholder='Password'
+            aria-label="Password"
+            aria-invalid={errors.password ? 'true' : 'false'}
+            {...register('password', {
+              required: 'Password cannot be empty',
+            })}
+          />
+          {errors?.password && (
+            <InputError message={errors?.password?.message} />
+          )}
+        </div>
+        <input type="submit" className='input-button' value="Claim your free trial" />
+        <p className='trial-form__terms'>
+          By clicking the button, you are agreeing to our{' '}
+          <a href="#">Terms and Services</a>
+        </p>
+      </form>
+    </>
+  );
+}
+
+export default Form;

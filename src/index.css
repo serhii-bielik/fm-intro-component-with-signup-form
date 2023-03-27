@@ -10,14 +10,20 @@
 
 :root {
   --ff: 'Poppins', sans-serif;
+  
+  --clr-white: #ffffff;
   --clr-red: #ff7a7a;
   --clr-green: #38cc8c;
+  --clr-dark-green: #34b87e;
   --clr-purple: #6055a5;
   --clr-dark-purple: #3e3c49;
   --clr-grayish-blue: #b9b6d3;
+
+  --shadow-block: rgba(0, 0, 0, 0.15) 0px 8px 0px 0px;
 }
 
-input, button {
+input,
+button {
   font: inherit;
 }
 
@@ -28,6 +34,108 @@ body {
   min-height: 100dvh;
   font-family: var(--ff);
   font-size: 16px;
+  color: var(--clr-white);
+  background-color: var(--clr-red);
+  background-image: url('/src/assets/bg-intro-mobile.png');
+  padding: 1.5rem;
 }
 
+/* Information */
+.information {
+  text-align: center;
+  padding: 3rem 0;
+}
+.information__title {
+  font-size: 1.7rem;
+  line-height: 120%;
+  margin-bottom: 2rem;
+}
 
+.information__description {
+}
+
+/* Try it */
+.try-it {
+  text-align: center;
+  background-color: var(--clr-purple);
+  padding: 1rem 3rem;
+  margin-bottom: 1.5rem;
+  border-radius: 0.5rem;
+  box-shadow: var(--shadow-block);
+}
+
+.try-it > span {
+  font-weight: 600;
+}
+
+/* Form */
+.trial-form {
+  color: var(--clr-dark-purple);
+  background-color: var(--clr-white);
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  box-shadow: var(--shadow-block);
+}
+
+.input-area {
+  margin-bottom: 1rem;
+}
+
+.input-text {
+  width: 100%;
+  border: 1px solid var(--clr-grayish-blue);
+  border-radius: 0.2rem;
+  padding: 0.8rem 2rem;  
+  font-weight: 600;
+}
+
+.input-text:focus {
+  outline: 1px solid var(--clr-dark-purple);
+}
+
+.input-text::placeholder {
+  color: var(--clr-dark-purple);
+  opacity: 0.8;
+  font-weight: 500;
+}
+
+.input-button {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  text-transform: uppercase;
+  color: var(--clr-white);
+  background-color: var(--clr-green);
+  border: none;
+  border-radius: 0.5rem;
+  box-shadow: var(--clr-dark-green) 0px 5px 0px 0px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.input-button:hover {
+  opacity: 0.75;  
+}
+
+.trial-form__terms {
+  margin-top: 1rem;
+  font-size: 0.7rem;
+  text-align: center;
+  color: var(--clr-grayish-blue);
+}
+.trial-form__terms > a {
+  color: var(--clr-red);
+  font-weight: 600;
+  text-decoration: none;
+}
+.trial-form__terms > a:hover {
+  text-decoration: underline;
+}
+
+/* Errors */
+.error-message {
+  padding-top: 0.2rem;
+  text-align: right;
+  color: var(--clr-red);
+  font-style: italic;
+  font-size: 0.7rem;
+}
