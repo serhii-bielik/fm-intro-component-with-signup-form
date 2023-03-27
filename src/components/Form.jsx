@@ -65,6 +65,10 @@ function Form() {
             aria-invalid={errors.email ? 'true' : 'false'}
             {...register('email', {
               required: 'Email cannot be empty',
+              pattern: {
+                value: /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,})$/,
+                message: 'Looks like this is not an email'
+              }
             })}
           />
           {errors?.email && (
@@ -80,6 +84,10 @@ function Form() {
             aria-invalid={errors.password ? 'true' : 'false'}
             {...register('password', {
               required: 'Password cannot be empty',
+              minLength: {
+                value: 8,
+                message: 'Password must be longer than 7 symbols'
+              }
             })}
           />
           {errors?.password && (
