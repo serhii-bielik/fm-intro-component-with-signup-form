@@ -29,8 +29,8 @@ function Form() {
         <div className='input-area'>
           <input
             type="text"
-            className='input-text'
-            placeholder='First Name'
+            className={'input-text' + (errors?.firstName ? ' error-icon' : '')}
+            placeholder='First Name' 
             aria-label="First Name"
             aria-invalid={errors.firstName ? 'true' : 'false'}
             {...register('firstName', {
@@ -44,7 +44,7 @@ function Form() {
         <div className='input-area'>
           <input
             type="text"
-            className='input-text'
+            className={'input-text' + (errors?.lastName ? ' error-icon' : '')}
             placeholder='Last Name'
             aria-label="Last Name"
             aria-invalid={errors.lastName ? 'true' : 'false'}
@@ -59,7 +59,7 @@ function Form() {
         <div className='input-area'>
           <input
             type="text"
-            className='input-text'
+            className={'input-text' + (errors?.email ? ' error-icon' : '')}
             placeholder='Email Address'
             aria-label="Email Address"
             aria-invalid={errors.email ? 'true' : 'false'}
@@ -78,7 +78,7 @@ function Form() {
         <div className='input-area'>
           <input
             type="password"
-            className='input-text'
+            className={'input-text' + (errors?.password ? ' error-icon' : '')}
             placeholder='Password'
             aria-label="Password"
             aria-invalid={errors.password ? 'true' : 'false'}
